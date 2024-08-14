@@ -38,6 +38,7 @@ main()
 
 // Configure session and flash messages
 const sessionOptions = {
+  store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
