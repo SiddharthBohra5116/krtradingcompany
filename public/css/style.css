@@ -124,3 +124,12 @@ footer {
     padding-left: 0;
     padding-right: 0;
 }
+/* Add this CSS code to your website's stylesheet */
+.favicon {
+    border-radius: 50%;
+    width: 16px; /* adjust the width to match the favicon size */
+    height: 16px; /* adjust the height to match the favicon size */
+    background-image: url('images/kr.png');
+    background-size: cover;
+    display: inline-block;
+  }

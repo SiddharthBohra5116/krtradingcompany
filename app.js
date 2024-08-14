@@ -22,6 +22,7 @@ const ownerRouter = require("./routes/owner.js");
 const certificateRouter = require("./routes/certificate.js");
 const productRouter = require("./routes/product.js");
 const userRouter = require("./routes/user.js");
+const mongoUrl = "mongodb://localhost:27017/KR"
 const dbUrl = process.env.ATLASDB_URL;
 // Connect to MongoDB
 async function main() {
