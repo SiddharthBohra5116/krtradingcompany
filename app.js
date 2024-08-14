@@ -36,6 +36,18 @@ main()
     console.error("Error connecting to MongoDB:", err);
   });
 
+  const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+      secret: process.env.SECRET,
+    },
+    touchAfter: 24*3600
+  });
+  
+  store.on("error", () => {
+    console.log("ERROR in MONGO SESSION STORE",error)
+  })
+
 // Configure session and flash messages
 const sessionOptions = {
   store,
@@ -48,18 +60,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
-const store = MongoStore.create({
-  mongoUrl: dbUrl,
-  crypto: {
-    secret: process.env.SECRET,
-  },
-  touchAfter: 24*3600
-});
-
-store.on("error", () => {
-  console.log("ERROR in MONGO SESSION STORE",error)
-})
 
 
 app.use(session(sessionOptions));
