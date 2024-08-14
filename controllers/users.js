@@ -17,8 +17,9 @@ module.exports.signup = async (req, res) => {
       res.redirect("/products");
     });
   } catch (error) {
-    req.flash("error", error.message);s
-    res.redirect("/signup");
+    req.flash("error", error.message);
+    let redirectUrl = res.locals.redirectUrl || "/products";
+    res.redirect(redirectUrl);
   }
 };
 
@@ -28,7 +29,7 @@ module.exports.renderLoginForm = (req, res) => {
 
 module.exports.login = async (req, res) => {
   req.flash("success", "Welcome back to KR Trading");
-  let redirectUrl = res.locals.redirectUrl || "/products";
+     
   res.redirect(redirectUrl);
 };
 
