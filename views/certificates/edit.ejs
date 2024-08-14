@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Edit Your Certificate</h3>
+    <form
+      action="/certificates/<%= certificate._id %>?_method=PUT"
+      method="POST"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          value="<%= certificate.name %>"
+          name="certificate[name]"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        Orignal Listing Image <br />
+        <img src="<%= orignalImageUrl %>" />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload New Image</label>
+        <input name="certificate[image]" type="file" class="form-control" />
+      </div>
+      <button class="btn bg-success add-btn mt-3">Edit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate") %> 
+<h3>Products</h3>
+
+  <% if (currUser && currUser._id.equals(process.env.OWNER_ID)) { %>
+    <form action="/products/new" method="GET">
+      <button type="submit" class="btn btn-success">Add product</button>
+    </form>
+  <% } %>
+
+<div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+  <% for (let product of allProducts) { %>
+    <a href="/products/<%= product._id %>" class="product-link">
+      <div class="card col product-card">
+        <img src="<%= product.image.url %>" class="card-img-top" alt="product_image" style="height: 20rem" />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= product.name %></b> <br />
+            &#8377 <%= product.price.toLocaleString("en-IN") %>
+          </p>
+        </div>
+      </div>
+    </a>
+  <% } %>
+</div>

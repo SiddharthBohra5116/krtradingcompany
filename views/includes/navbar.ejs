@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light bg-success border-bottom sticky-top" >
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="/">
+      <img src="path_to_logo.png" alt="KR Trading Logo" style="height: 30px;">
+      KR Trading
+    </a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link text-white" href="/home">Home</a>
+        <a class="nav-link text-white" href="/products">Products</a>
+        <a class="nav-link text-white" href="/owners">About Us</a>
+        <a class="nav-link text-white" href="/certificates">Certificates</a>
+        <a class="nav-link text-white" href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <% if(!currUser) { %>
+        <a class="nav-link" href="/admin/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/admin/login"><b>Log in</b></a>
+          <% } %> <% if(currUser){ %>
+        <a class="nav-link" href="/admin/logout"><b>Log out</b></a>
+            <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

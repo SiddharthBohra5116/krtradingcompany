@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Add a New Certificate</h3>
+    <form
+      action="/certificates"
+      method="POST"
+      class="needs-validation"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Name of certificate"
+          name="certificate[name]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          Please enter the name of the certificate.
+        </div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="form-group">
+        <label for="image" class="form-label">Upload Image</label>
+        <input
+          name="certificate[image]"
+          type="file"
+          id="image"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          Please upload an image for the certificate.
+        </div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <button type="submit" class="btn btn-dark add-btn mt-3">Add</button>
+    </form>
+  </div>
+</div>

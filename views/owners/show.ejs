@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+    <div class="col-8 offset-3">
+      <h3><%= owner.name %></h3>
+    </div>
+    <div class="card col-6 offset-3 show-card">
+      <img
+        src="<%= owner.image.url%>"
+        class="card-img-top show-img"
+        alt="owner_image"
+      />
+      
+    </div>
+  
+    <br />
+
+    <% if ( currUser && currUser._id.equals(process.env.OWNER_ID) ) { %>
+    <div class="btns">
+        <a
+          href="/owners/<%= owner._id %>/edit"
+          class="btn bg-success row-1 col-1 offset-3 edit-btn mt-2"
+          >Edit</a
+        >
+    
+        <form action="/owners/<%= owner._id  %>?_method=DELETE" method="POST">
+          <button class="btn btn-dark offset-5 mt-2">DELETE</button>
+        </form>
+      </div>
+      <% } %>

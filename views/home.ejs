@@ -1,0 +1,126 @@
+<% layout("/layouts/boilerplate") %>
+<link rel="stylesheet" href="../public/css/home.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 60px; /* Add padding to the bottom to make space for the footer */
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 130px;
+}
+
+
+</style>
+<header>
+    <h1>Welcome to KR Trading Company</h1>
+    <p>Discover our exclusive products, meet our certified team, and learn more about us!</p>
+</header>
+<main>
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+        <% for (let product of products) { %>
+        <a href="/products/<%= product._id %>" class="product-link">
+            <div class="card col product-card">
+                <img src="<%= product.image.url %>" class="card-img-top" alt="product_image" style="height: 20rem" />
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= product.name %></b> <br />
+                        &#8377 <%= product.price.toLocaleString("en-IN") %>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+</section>
+
+<section id="certificates">
+    <h2>Our Certificates</h2>
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+        <% for (let certificate of certificates) { %>
+        <a href="/certificates/<%= certificate._id %>" class="product-link">
+            <div class="card col product-card">
+                <img src="<%= certificate.image.url %>" class="card-img-top" alt="certificate_image" style="height: 20rem" />
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= certificate.name %></b>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+</section>
+
+<section id="owners">
+    <h2>Meet the Owners</h2>
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+        <% for (let owner of owners) { %>
+        <a href="/owners/<%= owner._id %>" class="product-link">
+            <div class="card col product-card">
+                <img src="<%= owner.image.url %>" class="card-img-top" alt="owner_image" style="height: 20rem" />
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= owner.name %></b>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+</section>
+</main>

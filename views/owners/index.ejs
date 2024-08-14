@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+<h3>All Owners</h3>
+
+<% if (currUser && currUser._id.equals(process.env.OWNER_ID)) { %>
+<form action="/owners/new" method="GET">
+  <button type="submit" class="btn btn-success">Add owner</button>
+</form>
+<% } %>
+
+<div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+  <% for (let owner of allOwners) { %>
+  <a href="/owners/<%= owner._id %>" class="product-link">
+    <div class="card col product-card">
+      <img
+        src="<%= owner.image.url %>"
+        class="card-img-top"
+        alt="owner_image"
+        style="height: 20rem"
+      />
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= owner.name %></b>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
