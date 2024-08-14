@@ -18,8 +18,7 @@ module.exports.signup = async (req, res) => {
     });
   } catch (error) {
     req.flash("error", error.message);
-    let redirectUrl = res.locals.redirectUrl || "/products";
-    res.redirect(redirectUrl);
+    res.redirect("/signup");
   }
 };
 
