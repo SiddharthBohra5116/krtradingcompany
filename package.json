@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "20.14.0"
+  },
   "name": "krweb",
   "version": "1.0.0",
   "main": "app.js",

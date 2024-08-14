@@ -4,7 +4,7 @@ const productController = require('../controllers/product');
 const certificateController = require('../controllers/certificate');
 const ownerController = require('../controllers/owner');
 
-router.get('/home', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const products = await productController.getSomeProducts(); // Fetch limited products
         const certificates = await certificateController.getSomeCertificates(); // Fetch limited certificates
